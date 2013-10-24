@@ -28,8 +28,6 @@ Auquel cas tu pourras aller sur:
     http://[monusername].github.io/ouskonmange/
 
 
-Soit... soit tu attends que je bosse un peu et tu verras ce que tu verras...
-
 ## Licence et autres billevesées
 
 Ce projet est sous licence WTFPL.
