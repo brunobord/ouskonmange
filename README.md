@@ -27,6 +27,11 @@ Auquel cas tu pourras aller sur:
 
     http://[monusername].github.io/ouskonmange/
 
+Soit tu clones ce dépôt sur un serveur à part et tu accèdes à l'URL de la page
+tout naturellement. Et tu as toujours à modifier les données JSON pour te donner
+le choix.
+
+Soit... tu me laisses un peu de temps et je te mijote une autre méthode...
 
 ## Licence et autres billevesées
 
