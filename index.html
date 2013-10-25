@@ -13,19 +13,21 @@
 	</style>
 	<script type="text/javascript">
 
+	function pickRestaurant(data) {
+		var randomIndex = Math.floor(Math.random() * data.length);
+		var restaurant = data[randomIndex];
+		$('#name').html(restaurant.name).fadeIn(500);
+	}
+
 	function loadRestaurant() {
 		$('#name').fadeOut(300, function() {
-			$.getJSON('data.json', function(data) {
-				var randomIndex = Math.floor(Math.random() * data.length);
-				var restaurant = data[randomIndex];
-				$('#name').html(restaurant.name).fadeIn(500);
-			});
+			$.getJSON('data.json', pickRestaurant);
 		});
 	}
 
 	$(document).ready(function() {
 		loadRestaurant();
-		$('#btn-refresh').click(function() { loadRestaurant() });
+		$('#btn-refresh').click(loadRestaurant);
 	});
 
 	</script>
