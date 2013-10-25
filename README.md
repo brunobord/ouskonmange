@@ -31,7 +31,16 @@ Soit tu clones ce dépôt sur un serveur à part et tu accèdes à l'URL de la p
 tout naturellement. Et tu as toujours à modifier les données JSON pour te donner
 le choix.
 
-Soit... tu me laisses un peu de temps et je te mijote une autre méthode...
+
+Soit tu utilises l'URL de la Github Page comme ceci :
+
+    http://brunobord.github.io/ouskonmange/?data=premier+choix,deuxième+choix,troisième+choix
+
+Tu peux même essayer de conserver cette URL dans tes signets, ça fonctionnera
+toujours.
+
+Soit... soit tu me laisses un peu de temps et j'essaierai de trouver un moyen
+encore plus geek.
 
 ## Licence et autres billevesées
 

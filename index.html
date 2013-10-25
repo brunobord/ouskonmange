@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<title>Où va-t-on manger ?</title>
 	<script src="js/jquery.js"></script>
+	<script src="js/purl.js"></script>
 	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic">
 	<link rel="stylesheet" type="text/css" href="css/kube.min.css" />
 	<style type="text/css">
@@ -13,21 +14,42 @@
 	</style>
 	<script type="text/javascript">
 
-	function pickRestaurant(data) {
-		var randomIndex = Math.floor(Math.random() * data.length);
-		var restaurant = data[randomIndex];
-		$('#name').html(restaurant.name).fadeIn(500);
-	}
-
-	function loadRestaurant() {
-		$('#name').fadeOut(300, function() {
-			$.getJSON('data.json', pickRestaurant);
-		});
+	function removeTrailingSlash(s) {
+		if (s.search('/') >= 0) {
+			return s.slice(0, s.length - 1);
+		}
+		return s;
 	}
 
 	$(document).ready(function() {
+		var data = [];
+		var raw = purl();
+		var dataset = raw.param('data');
+		var source = raw.param('source');
+		if (dataset !== undefined) {
+			raw_data = removeTrailingSlash(dataset).split(',');
+			for (i in raw_data) {
+				item = {};
+				item.name = raw_data[i];
+				data.push(item);
+			}
+		} else {
+			var url = 'data.json';
+			$.getJSON(url, function(stuff) { data = stuff});
+		}
 		loadRestaurant();
 		$('#btn-refresh').click(loadRestaurant);
+
+		function pickRestaurant() {
+			var randomIndex = Math.floor(Math.random() * data.length);
+			var restaurant = data[randomIndex];
+			$('#name').html(restaurant.name).fadeIn(500);
+		}
+
+		function loadRestaurant() {
+			$('#name').fadeOut(300, pickRestaurant);
+		}
+
 	});
 
 	</script>
