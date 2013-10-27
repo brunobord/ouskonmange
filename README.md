@@ -39,8 +39,25 @@ Soit tu utilises l'URL de la Github Page comme ceci :
 Tu peux même essayer de conserver cette URL dans tes signets, ça fonctionnera
 toujours.
 
-Soit... soit tu me laisses un peu de temps et j'essaierai de trouver un moyen
-encore plus geek.
+Soit... tu as accès à un serveur web sur lequel tu peux disposer d'une URL qui
+renvoie la liste des restaurants au format JSONP, sous la forme suivante :
+
+    ouskonmange(
+        [{name: "toto"},
+        {name: "meuh"}]
+    )
+
+**Note importante :** il est capital de conserver le nom ``ouskonmange`` comme
+callback. Sinon, ça plante.
+
+Disons que cette réponse est appelable à l'adresse http://example.com/restaurants.jsonp
+
+Tu peux alors utiliser l'URL suivante :
+
+    http://brunobord.github.io/ouskonmange/?source=http://example.com/restaurants.jsonp
+
+
+
 
 ## Licence et autres billevesées
 
