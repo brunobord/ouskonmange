@@ -34,13 +34,26 @@
 				data.push(item);
 			}
 		} else {
-			var url = 'data.json';
-			$.getJSON(url, function(stuff) { data = stuff});
+			if (source !== undefined && source !== '') {
+				var url = removeTrailingSlash(source);
+				$.ajax(url, {
+						dataType: 'jsonp',
+						jsonpCallback: 'ouskonmange',
+					}
+				).done(updateData);
+			} else {
+				var url = 'data.json';
+				$.getJSON(url, updateData);
+			}
 		}
 		loadRestaurant();
 		$('#btn-refresh').click(loadRestaurant);
 
 		function pickRestaurant() {
+			if (data.length === 0) {
+				$('#name').html('Erreur: chargement des données').show();
+				return;
+			}
 			var randomIndex = Math.floor(Math.random() * data.length);
 			var restaurant = data[randomIndex];
 			$('#name').html(restaurant.name).fadeIn(500);
@@ -48,6 +61,10 @@
 
 		function loadRestaurant() {
 			$('#name').fadeOut(300, pickRestaurant);
+		}
+
+		function updateData(stuff) {
+			data = stuff;
 		}
 
 	});
