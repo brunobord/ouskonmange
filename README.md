@@ -57,6 +57,10 @@ Tu peux alors utiliser l'URL suivante :
     http://brunobord.github.io/ouskonmange/?source=http://example.com/restaurants.jsonp
 
 
+## à l'horizon...
+
+donner la possibilité de taguer les restaurants et de filtrer les données sur 
+ce tag.
 
 
 ## Licence et autres billevesées
